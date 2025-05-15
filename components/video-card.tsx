@@ -10,26 +10,26 @@ import Thumbnail from "./thumbnail";
 
 const VideoCard = ({ video }: any) => {
     return (
-        <Card className="border-0 rounded-none md:border-[1px] md:rounded-md transform transition duration-200 md:hover:scale-[101%] md:hover:shadow-lg">
+        <Card className="border-0 rounded-none md:border-[1px] md:rounded-md transform transition duration-200 md:hover:scale-[101%] md:hover:shadow-lg animate-slideUp">
             <div className="relative">
                 <Thumbnail
                     single_img={video.single_img}
                     splash_img={video.splash_img}
                     title={video.title}
                 />
-                <Badge className="absolute bottom-1 right-1 px-1 bg-black bg-opacity-65">
+                <Badge className="absolute bottom-1 right-1 px-1 bg-primary/80 text-primary-foreground">
                     {humanDuration(video.length)}
                 </Badge>
             </div>
             <CardContent className="p-1.5">
                 <Link
                     href={`/v/${video.file_code}`}
-                    className="line-clamp-2 text-sm md:text-md font-semibold hover:text-primary focus:text-primary"
+                    className="line-clamp-2 text-sm md:text-md font-semibold hover:text-primary focus:text-primary transition-colors"
                     aria-label={`Watch ${video.title}`}
                 >
                     {video.title}
                 </Link>
-                <div className="flex flex-row justify-between text-[0.6rem] md:text-xs my-1 uppercase text-gray-500">
+                <div className="flex flex-row justify-between text-[0.6rem] md:text-xs my-1 uppercase text-muted-foreground">
                     <span>{video.views} views</span>
                     <div className="inline-flex">
                         {naturalTime(video.uploaded + ".000Z")}

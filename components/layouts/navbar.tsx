@@ -30,7 +30,7 @@ const SideNav = ({ folders }: { folders: any }) => {
         <Sheet>
             <SheetTrigger asChild>
                 <HamburgerMenuIcon
-                    className="size-6"
+                    className="size-6 transition-colors hover:text-primary"
                     role="menu"
                     aria-label="Open Menu"
                 ></HamburgerMenuIcon>
@@ -59,7 +59,7 @@ const SideNav = ({ folders }: { folders: any }) => {
                                 className="w-full"
                                 role="menuitem"
                             >
-                                <SheetClose className="flex flex-col transition-colors bg-accent text-accent-foreground px-2 py-1 rounded-md w-full">
+                                <SheetClose className="flex flex-col transition-colors bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground px-2 py-1 rounded-md w-full">
                                     <h1 className="text-xl font-semibold">
                                         {folder.name}
                                     </h1>
@@ -89,7 +89,7 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
                     <a
                         ref={ref}
                         className={cn(
-                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
                             className
                         )}
                         role="menuitem"
@@ -138,14 +138,14 @@ const Navbar = async () => {
     const folders = data.result.folders;
 
     return (
-        <div className="flex justify-between items-center px-4 py-3 border-b-[1px]">
+        <div className="flex justify-between items-center px-4 py-3 border-b shadow-md animate-slideUp">
             <div className="md:hidden">
                 <SideNav folders={folders}></SideNav>
             </div>
             <div>
                 <Link
                     href="/"
-                    className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl"
+                    className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl text-primary transition-colors hover:text-accent"
                 >
                     {SITENAME}
                 </Link>
@@ -154,7 +154,7 @@ const Navbar = async () => {
                 <div className="hidden md:flex items-center gap-4">
                     <Link
                         href="/liked"
-                        className="hover:bg-accent px-2 py-1.5 rounded-md"
+                        className="transition-colors hover:bg-accent hover:text-accent-foreground px-2 py-1.5 rounded-md"
                         aria-label="Open liked videos"
                     >
                         Liked Videos

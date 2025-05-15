@@ -63,6 +63,7 @@ const PaginationLink = ({
                     size,
                 }),
                 "cursor-pointer",
+                "transition-colors",
                 className,
                 isActive && "text-primary"
             )}
@@ -81,7 +82,7 @@ const PaginationPrevious = ({
     <PaginationLink
         aria-label="Go to previous page"
         size="default"
-        className={cn(className)}
+        className={cn("transition-colors", className)}
         {...props}
     >
         <ChevronLeftIcon />
@@ -96,7 +97,7 @@ const PaginationNext = ({
     <PaginationLink
         aria-label="Go to next page"
         size="default"
-        className={className}
+        className={cn("transition-colors", className)}
         {...props}
     >
         <ChevronRightIcon />

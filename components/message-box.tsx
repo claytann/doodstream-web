@@ -26,7 +26,7 @@ const MessageBox = ({
     countdown?: number;
 }) => {
     const router = useRouter();
-    const color = variant === "error" ? "text-red-500" : "text-blue-500";
+    const color = variant === "error" ? "text-destructive" : "text-primary";
     const [count, setCount] = React.useState(countdown || 0);
 
     React.useEffect(() => {
@@ -44,7 +44,7 @@ const MessageBox = ({
 
     return (
         <Center>
-            <Card className="border-0 lg:max-w-screen-md">
+            <Card className="border-0 lg:max-w-screen-md animate-fadeIn">
                 <CardHeader>
                     <CardTitle className="flex flex-col items-center text-2xl break-words">
                         <InfoIcon
@@ -56,7 +56,7 @@ const MessageBox = ({
                 <CardContent className="text-center">{children}</CardContent>
                 <CardFooter className="flex flex-col items-center">
                     {countdown && (
-                        <div className="text-xs text-gray-500 uppercase">
+                        <div className="text-xs text-muted-foreground uppercase">
                             Redirecting to home in {count} seconds
                         </div>
                     )}

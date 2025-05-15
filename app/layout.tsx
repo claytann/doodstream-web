@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={font.className}>
+            <body className={`${font.className} animate-fadeIn`}>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
